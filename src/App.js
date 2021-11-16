@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+// import SplashScreen from "./Pages/SplashScreen";
+import DashboardScreen from "./Pages/DashboardScreen";
+import ws from "./utils/Websocket";
 
 function App() {
+  const [splash, setSplash] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setSplash(false);
+    }, 2000);
+
+    return;
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-800 h-screen py-5 px-5 md:px-10">
+      <DashboardScreen />
     </div>
   );
 }
